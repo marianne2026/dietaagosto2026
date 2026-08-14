@@ -13,6 +13,9 @@
     --line: #ece5da;
     --accent: #c17a4a;
     --accent-soft: #f3e3d3;
+    --carb: #c17a4a;
+    --protein: #7a9b6e;
+    --fat: #b08bc4;
   }
 
   * { box-sizing: border-box; }
@@ -65,10 +68,13 @@
     color: #fff;
     border-radius: 16px;
     padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+
+  .total-day .top-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
   }
 
   .total-day .label {
@@ -79,6 +85,19 @@
   .total-day .value {
     font-size: 1.3rem;
     font-weight: 700;
+  }
+
+  .total-macros {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 0.75rem;
+  }
+
+  .total-macros span {
+    opacity: 0.9;
   }
 
   .meal {
@@ -116,6 +135,35 @@
     border-radius: 999px;
     white-space: nowrap;
   }
+
+  .macro-bar {
+    display: flex;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #fbf8f4;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.72rem;
+  }
+
+  .macro-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot.carb { background: var(--carb); }
+  .dot.protein { background: var(--protein); }
+  .dot.fat { background: var(--fat); }
+
+  .macro-pill .amt { color: var(--muted); font-weight: 500; }
 
   ul.items {
     list-style: none;
@@ -205,19 +253,31 @@
   <header>
     <h1>🍽️ Meu Plano Alimentar</h1>
     <p>Consulta rápida das refeições do dia</p>
-    <p class="period">15/07/2026 até 14/08/2026</p>
+    <p class="period">14/08/2026 até 13/09/2026</p>
   </header>
 
   <div class="total-day">
-    <span class="label">Total estimado do dia</span>
-    <span class="value">~1780 kcal</span>
+    <div class="top-row">
+      <span class="label">Total estimado do dia</span>
+      <span class="value">~2230 kcal</span>
+    </div>
+    <div class="total-macros">
+      <span>🟠 Carb ~296g</span>
+      <span>🟢 Prot ~122g</span>
+      <span>🟣 Gord ~63g</span>
+    </div>
   </div>
 
   <!-- CAFÉ DA MANHÃ -->
   <div class="meal">
     <div class="meal-header">
       <h2>☀️ Café da Manhã</h2>
-      <span class="meal-kcal">~520 kcal</span>
+      <span class="meal-kcal">~545 kcal</span>
+    </div>
+    <div class="macro-bar">
+      <span class="macro-pill"><span class="dot carb"></span>Carb <span class="amt">55g</span></span>
+      <span class="macro-pill"><span class="dot protein"></span>Prot <span class="amt">27g</span></span>
+      <span class="macro-pill"><span class="dot fat"></span>Gord <span class="amt">22g</span></span>
     </div>
     <ul class="items">
       <li>
@@ -245,18 +305,47 @@
     <div class="obs">Obs: caso queira colocar 2 fatias de queijo, pode colocar apenas 1 ovo.</div>
   </div>
 
+  <!-- PRÉ-TREINO -->
+  <div class="meal">
+    <div class="meal-header">
+      <h2>💪 Pré-treino</h2>
+      <span class="meal-kcal">~225 kcal</span>
+    </div>
+    <div class="macro-bar">
+      <span class="macro-pill"><span class="dot carb"></span>Carb <span class="amt">30g</span></span>
+      <span class="macro-pill"><span class="dot protein"></span>Prot <span class="amt">25g</span></span>
+      <span class="macro-pill"><span class="dot fat"></span>Gord <span class="amt">2g</span></span>
+    </div>
+    <ul class="items">
+      <li>
+        <div class="row"><span class="item-name">Whey protein</span><span class="item-qty">30g · 1 dosador + água</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="item-name">Banana</span><span class="item-qty">1 unidade</span></div>
+      </li>
+    </ul>
+  </div>
+
   <!-- ALMOÇO -->
   <div class="meal">
     <div class="meal-header">
       <h2>🍚 Almoço</h2>
-      <span class="meal-kcal">~305 kcal</span>
+      <span class="meal-kcal">~550 kcal</span>
+    </div>
+    <div class="macro-bar">
+      <span class="macro-pill"><span class="dot carb"></span>Carb <span class="amt">71g</span></span>
+      <span class="macro-pill"><span class="dot protein"></span>Prot <span class="amt">27g</span></span>
+      <span class="macro-pill"><span class="dot fat"></span>Gord <span class="amt">17g</span></span>
     </div>
     <ul class="items">
       <li>
         <div class="row"><span class="item-name">Arroz</span><span class="item-qty">100g</span></div>
       </li>
       <li>
-        <div class="row"><span class="item-name">Feijão / lentilha</span><span class="item-qty">65g</span></div>
+        <div class="row"><span class="item-name">Mandioca</span><span class="item-qty">50g</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="item-name">Feijão</span><span class="item-qty">65g</span></div>
       </li>
       <li>
         <div class="row"><span class="item-name">Proteína de soja</span><span class="item-qty">90g</span></div>
@@ -266,7 +355,10 @@
         </div>
       </li>
       <li>
-        <div class="row"><span class="item-name">Legumes e salada</span><span class="item-qty">livre · aprox. 100g</span></div>
+        <div class="row"><span class="item-name">Amêndoas laminadas</span><span class="item-qty">30g</span></div>
+      </li>
+      <li>
+        <div class="row"><span class="item-name">Legumes e salada</span><span class="item-qty">livre</span></div>
       </li>
     </ul>
   </div>
@@ -275,7 +367,12 @@
   <div class="meal">
     <div class="meal-header">
       <h2>🍌 Lanche</h2>
-      <span class="meal-kcal">~440 kcal</span>
+      <span class="meal-kcal">~525 kcal</span>
+    </div>
+    <div class="macro-bar">
+      <span class="macro-pill"><span class="dot carb"></span>Carb <span class="amt">70g</span></span>
+      <span class="macro-pill"><span class="dot protein"></span>Prot <span class="amt">22g</span></span>
+      <span class="macro-pill"><span class="dot fat"></span>Gord <span class="amt">20g</span></span>
     </div>
     <ul class="items">
       <li>
@@ -293,6 +390,9 @@
       <li>
         <div class="row"><span class="item-name">Castanha do Pará</span><span class="item-qty">2 unidades · 8g</span></div>
       </li>
+      <li>
+        <div class="row"><span class="item-name">Semente de abóbora torrada</span><span class="item-qty">10g</span></div>
+      </li>
     </ul>
   </div>
 
@@ -300,7 +400,12 @@
   <div class="meal">
     <div class="meal-header">
       <h2>🌙 Jantar</h2>
-      <span class="meal-kcal">~445 kcal</span>
+      <span class="meal-kcal">~315 kcal</span>
+    </div>
+    <div class="macro-bar">
+      <span class="macro-pill"><span class="dot carb"></span>Carb <span class="amt">52g</span></span>
+      <span class="macro-pill"><span class="dot protein"></span>Prot <span class="amt">20g</span></span>
+      <span class="macro-pill"><span class="dot fat"></span>Gord <span class="amt">2g</span></span>
     </div>
     <ul class="items">
       <li>
@@ -321,12 +426,6 @@
       <li>
         <div class="row"><span class="item-name">Legumes e salada</span><span class="item-qty">livre · aprox. 100g</span></div>
       </li>
-      <li>
-        <div class="row"><span class="item-name">Suco de uva integral</span><span class="item-qty">250ml</span></div>
-        <div class="alt-list">
-          <div class="alt-row"><span class="item-name"><span class="alt-tag">op.</span>Shake proteico</span><span class="item-qty">1 dose</span></div>
-        </div>
-      </li>
     </ul>
   </div>
 
@@ -335,6 +434,11 @@
     <div class="meal-header">
       <h2>🌛 Ceia</h2>
       <span class="meal-kcal">~70 kcal</span>
+    </div>
+    <div class="macro-bar">
+      <span class="macro-pill"><span class="dot carb"></span>Carb <span class="amt">18g</span></span>
+      <span class="macro-pill"><span class="dot protein"></span>Prot <span class="amt">1g</span></span>
+      <span class="macro-pill"><span class="dot fat"></span>Gord <span class="amt">0g</span></span>
     </div>
     <ul class="items">
       <li>
@@ -349,7 +453,7 @@
     </ul>
   </div>
 
-  <p class="note">As calorias são estimativas aproximadas com base em valores nutricionais médios dos alimentos e podem variar conforme marca e preparo.</p>
+  <p class="note">As calorias e macros são estimativas aproximadas com base em valores nutricionais médios dos alimentos e podem variar conforme marca e preparo.</p>
 
 </div>
 </body>
